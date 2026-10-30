@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ik-portal-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ik_portal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ikportal123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ik_portal_data:/var/lib/postgresql/data
+
+volumes:
+  ik_portal_data:
