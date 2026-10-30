@@ -9,7 +9,8 @@ import org.hibernate.annotations.Check;
 
 @Entity
 @Table(name = "mentorship")
-@Check(constraints = "(status IN ('ACTIVE', 'ENDED', 'CANCELLED')) AND (ended_on IS NULL OR ended_on >= started_on)")
+@Check(constraints = "(status IN ('ACTIVE', 'ENDED', 'CANCELLED')) AND (ended_on IS NULL OR ended_on >= started_on)" +
+        "AND (mentor_employee_id <> mentee_employee_id)")
 @Getter
 @Setter
 @NoArgsConstructor

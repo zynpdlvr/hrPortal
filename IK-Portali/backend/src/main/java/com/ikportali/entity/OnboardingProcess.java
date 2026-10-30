@@ -8,7 +8,15 @@ import java.time.Instant;
 import org.hibernate.annotations.Check;
 
 @Entity
-@Table(name = "onboarding_process")
+@Table(
+        name = "onboarding_process",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_onboarding_process_employee",
+                        columnNames = "employee_id"
+                )
+        }
+)
 @Check(constraints = "(status IN ('NOT_STARTED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED')) AND (status <> 'COMPLETED' OR completed_at IS NOT NULL)")
 @Getter
 @Setter
@@ -20,7 +28,7 @@ public class OnboardingProcess {
     @Column(name = "onboarding_process_id", nullable = false)
     private Long onboardingProcessId;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
