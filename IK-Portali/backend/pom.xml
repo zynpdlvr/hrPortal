@@ -31,6 +31,19 @@
             <version>12.4.0</version>
         </dependency>
         <dependency><groupId>org.projectlombok</groupId><artifactId>lombok</artifactId><optional>true</optional></dependency>
+
+        <!-- Flyway migration altyapısı -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-flyway</artifactId>
+        </dependency>
+
+        <!-- Flyway PostgreSQL desteği -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+        </dependency>
+
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
     </dependencies>
 </project>

@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:55432/ik_portal
+    username: postgres
+    password: ${POSTGRES_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
